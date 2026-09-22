@@ -4,6 +4,10 @@ import greenhouse from "@/assets/agricultural-greenhouse.jpg";
 import extrusion from "@/assets/extrusion-detail.jpg";
 import quality from "@/assets/quality-lab.jpg";
 import logistics from "@/assets/logistics-pallets.jpg";
+import shrinkFilm from "@/assets/shrink-film-products.jpg";
+import stretchFilm from "@/assets/stretch-film-pallet.jpg";
+import pouches from "@/assets/plastic-pouches.jpg";
+import wasteBags from "@/assets/industrial-waste-bags.jpg";
 
 export const products = [
   {
@@ -32,7 +36,7 @@ export const products = [
     slug: "gaines-plastiques",
     title: "Gaines plastiques",
     description: "Solutions continues pour emballage automatisé et applications industrielles.",
-    image: extrusion,
+    image: shrinkFilm,
     sectors: ["Industrie", "Agroalimentaire"],
   },
   {
@@ -55,7 +59,7 @@ export const products = [
     title: "Films étirables",
     description:
       "Solutions de maintien et de sécurisation des palettes pour le stockage et le transport.",
-    image: logistics,
+    image: stretchFilm,
     sectors: ["Industrie", "Logistique"],
   },
   {
@@ -63,7 +67,7 @@ export const products = [
     title: "Sachets plastiques",
     description:
       "Sachets en différents formats pour le conditionnement et la protection de pièces ou produits.",
-    image: bags,
+    image: pouches,
     sectors: ["Industrie", "Agroalimentaire"],
   },
   {
@@ -71,7 +75,7 @@ export const products = [
     title: "Sacs-poubelle industriels",
     description:
       "Sacs résistants adaptés à la collecte et à la gestion des déchets en environnements professionnels.",
-    image: film,
+    image: wasteBags,
     sectors: ["Industrie", "Construction", "Logistique"],
   },
 ];
