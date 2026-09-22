@@ -39,25 +39,21 @@ function Blog() {
             eyebrow="Le journal LGM"
             title="Pour mieux comprendre la matière et ses usages."
           />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2">
             {posts.map((p, i) => (
-              <Reveal key={p.slug} delay={i * 0.07}>
-                <article
-                  className={
-                    i === 0
-                      ? "md:col-span-2 md:grid md:grid-cols-[1.2fr_.8fr] overflow-hidden rounded-lg border bg-card shadow-sm"
-                      : "overflow-hidden rounded-lg border bg-card shadow-sm"
-                  }
-                >
-                  <img
-                    src={p.image}
-                    width={1536}
-                    height={1024}
-                    loading="lazy"
-                    alt={`Illustration de l’article : ${p.title}`}
-                    className="aspect-[4/3] h-full w-full object-cover"
-                  />
-                  <div className="p-7">
+              <Reveal key={p.slug} delay={i * 0.07} className="h-full">
+                <article className="group flex h-full flex-col overflow-hidden rounded-lg border bg-card shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <Link to="/blog/$slug" params={{ slug: p.slug }} className="block overflow-hidden">
+                    <img
+                      src={p.image}
+                      width={1536}
+                      height={864}
+                      loading="lazy"
+                      alt={`Illustration de l’article : ${p.title}`}
+                      className="aspect-[16/9] w-full object-cover image-hover group-hover:scale-105"
+                    />
+                  </Link>
+                  <div className="flex flex-1 flex-col p-7">
                     <p className="text-xs font-semibold uppercase tracking-widest text-highlight">
                       {p.category} · {p.date}
                     </p>
@@ -66,9 +62,9 @@ function Blog() {
                     <Link
                       to="/blog/$slug"
                       params={{ slug: p.slug }}
-                      className="mt-6 inline-flex items-center gap-2 font-semibold text-primary"
+                      className="mt-auto inline-flex items-center gap-2 pt-6 font-semibold text-primary"
                     >
-                      Lire l’article <ArrowRight className="size-4" />
+                      Lire l’article <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </article>
