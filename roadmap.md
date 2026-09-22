@@ -10,3 +10,4 @@
 - [x] Ajouter des transitions fluides et vérifier ordinateur/mobile
 - [x] Enrichir la page article avec une mise en page éditoriale, le partage et la progression de lecture
 - [x] Régulariser la grille du blog et ajouter quatre familles de produits
+- [x] Donner à chaque famille de produits une image distincte et fidèle
