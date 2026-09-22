@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "LGM conçoit et fabrique à Casablanca et Had Soualem des films, sacs, housses, gaines et films agricoles pour l'industrie.",
+          "LGM conçoit et fabrique au Maroc des films, sacs, housses, gaines et films agricoles pour l'industrie.",
       },
       {
         property: "og:title",
@@ -38,7 +38,7 @@ function Home() {
         image={hero}
         eyebrow="Fabricant marocain • Depuis 1986"
         title="Le plastique au service de vos ambitions."
-        description="Films, sacs, housses et gaines conçus pour les exigences de l'industrie, produits avec rigueur à Had Soualem."
+        description="Films, sacs, housses et gaines conçus au Maroc pour répondre avec rigueur aux exigences de l’industrie."
         full
       >
         <Button asChild size="lg" variant="cta">
@@ -143,8 +143,8 @@ function Home() {
                   Ancrés au Maroc. Tournés vers vos objectifs.
                 </h2>
                 <p className="mt-5 leading-7 text-muted-foreground">
-                  Du siège de Casablanca à l’usine de Had Soualem, nos équipes accompagnent les
-                  industriels et acteurs agricoles avec réactivité.
+                  Depuis Casablanca, nos équipes accompagnent les industriels et acteurs agricoles
+                  avec proximité et réactivité.
                 </p>
                 <div className="mt-7 flex items-center gap-3 font-medium text-primary">
                   <MapPin /> Casablanca, Maroc

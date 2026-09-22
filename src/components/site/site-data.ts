@@ -90,5 +90,4 @@ export const contact = {
   email: "globale1@menara.ma",
   office:
     "61, Centre Commercial Riad, angle Boulevard Lalla Yacout et Rue Mustapha El Maani, 3ème étage, Bureau n°3 — 20000 Casablanca, Maroc",
-  factory: "Z.I. du Sahel n°25, Had Soualem, Maroc",
 };

@@ -11,7 +11,7 @@ export const Route = createFileRoute("/a-propos")({
       {
         name: "description",
         content:
-          "Découvrez l’histoire, les valeurs et l’outil industriel de La Globale Marocaine à Casablanca et Had Soualem.",
+          "Découvrez l’histoire, les valeurs et le savoir-faire industriel de La Globale Marocaine à Casablanca.",
       },
       { property: "og:title", content: "Notre histoire depuis 1986 — LGM" },
       {
