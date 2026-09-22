@@ -33,6 +33,7 @@ export function Hero({
   description,
   children,
   full = false,
+  align = "left",
 }: {
   image: string;
   eyebrow: string;
@@ -40,36 +41,49 @@ export function Hero({
   description: string;
   children?: ReactNode;
   full?: boolean;
+  align?: "left" | "center";
 }) {
   return (
     <section
-      className={`relative isolate overflow-hidden ${full ? "min-h-[92svh]" : "min-h-[66svh]"} flex items-end`}
+      className={`relative isolate flex items-end overflow-hidden ${full ? "min-h-[92svh]" : "min-h-[60svh]"}`}
     >
       <img
         src={image}
-        width={1536}
-        height={1024}
+        width={1600}
+        height={900}
         alt=""
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--primary-dark)_94%,transparent)_0%,color-mix(in_oklab,var(--primary-dark)_74%,transparent)_48%,color-mix(in_oklab,var(--primary-dark)_20%,transparent)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(105deg,color-mix(in_oklab,var(--primary-dark)_96%,transparent)_0%,color-mix(in_oklab,var(--primary-dark)_76%,transparent)_46%,color-mix(in_oklab,var(--primary-dark)_12%,transparent)_100%)]" />
+      <div className="surface-grid absolute inset-0 -z-10 opacity-40" />
       <div className="container-wide pb-16 pt-36 sm:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="max-w-4xl text-hero-foreground"
+          className={`${align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-4xl"} text-hero-foreground`}
         >
-          <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-hero-foreground/75">
+          <p
+            className={`mb-5 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-hero-foreground/80 ${align === "center" ? "justify-center" : ""}`}
+          >
+            <span className="h-0.5 w-9 bg-highlight" aria-hidden="true" />
             {eyebrow}
           </p>
-          <h1 className="max-w-4xl text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-8xl">
+          <h1
+            className={`${full ? "text-5xl sm:text-6xl lg:text-7xl" : "text-4xl sm:text-5xl lg:text-6xl"} max-w-4xl font-bold leading-[1.04]`}
+          >
             {title}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-7 text-hero-foreground/80 sm:text-lg">
             {description}
           </p>
-          {children && <div className="mt-9 flex flex-wrap gap-3">{children}</div>}
+          {children && (
+            <div
+              className={`mt-9 flex flex-wrap gap-3 ${align === "center" ? "justify-center" : ""}`}
+            >
+              {children}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
@@ -112,7 +126,7 @@ export function SectionHeading({
 
 export function CtaBand({ title, text }: { title: string; text: string }) {
   return (
-    <section className="bg-primary-dark py-16 text-primary-foreground">
+    <section className="diagonal-top surface-grid bg-primary-dark pb-16 pt-24 text-primary-foreground">
       <div className="container-wide grid items-end gap-8 md:grid-cols-[1fr_auto]">
         <div>
           <h2 className="max-w-3xl text-4xl font-bold sm:text-5xl">{title}</h2>
@@ -136,7 +150,7 @@ export function ProductCard({
   return (
     <article className="group overflow-hidden rounded-lg bg-card shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
       <Link to="/produits" className="block">
-        <div className="overflow-hidden">
+        <div className="relative overflow-hidden">
           <img
             src={product.image}
             width={1536}
@@ -145,6 +159,9 @@ export function ProductCard({
             alt={`${product.title} fabriqués par LGM`}
             className="aspect-[4/3] w-full object-cover image-hover group-hover:scale-105"
           />
+          <span className="absolute left-4 top-4 rounded-full bg-primary-dark px-3 py-1 text-xs font-semibold text-primary-foreground shadow-md">
+            {product.sectors[0]}
+          </span>
         </div>
         <div className="p-6">
           <h3 className="text-xl font-semibold">{product.title}</h3>

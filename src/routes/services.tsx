@@ -65,7 +65,10 @@ function Services() {
               const Icon = I as typeof Boxes;
               return (
                 <Reveal key={t as string} delay={i * 0.08}>
-                  <article className="group min-h-72 rounded-lg border bg-card p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                  <article className="group relative min-h-72 overflow-hidden rounded-lg border bg-card p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                    <span className="pointer-events-none absolute right-5 top-2 font-display text-8xl font-bold text-primary/7">
+                      0{i + 1}
+                    </span>
                     <Icon className="size-8 text-primary" />
                     <h2 className="mt-12 text-2xl font-semibold">{t as string}</h2>
                     <p className="mt-3 max-w-lg leading-7 text-muted-foreground">{d as string}</p>
@@ -81,7 +84,7 @@ function Services() {
           </div>
         </div>
       </section>
-      <section className="section-pad bg-primary-dark text-primary-foreground">
+      <section className="section-pad diagonal-top surface-grid bg-primary-dark pt-32 text-primary-foreground">
         <div className="container-wide">
           <SectionHeading
             light

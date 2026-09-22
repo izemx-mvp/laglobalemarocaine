@@ -50,7 +50,7 @@ function Home() {
           <Link to="/produits">Découvrir nos produits</Link>
         </Button>
       </Hero>
-      <section className="bg-primary-dark py-8 text-primary-foreground">
+      <section className="diagonal-bottom surface-grid bg-primary-dark pb-16 pt-8 text-primary-foreground">
         <div className="container-wide grid gap-px bg-primary-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ["39", "ans d’expérience"],
@@ -83,7 +83,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="section-pad bg-secondary">
+      <section className="section-pad surface-grid-dark bg-secondary">
         <div className="container-wide space-y-20">
           <Reveal>
             <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_.85fr]">
@@ -94,7 +94,7 @@ function Home() {
                   height={1024}
                   loading="lazy"
                   alt="Rouleaux de film plastique transparent sur une ligne industrielle"
-                  className="aspect-[5/4] w-full object-cover image-hover hover:scale-105"
+                  className="aspect-[4/3] w-full object-cover image-hover hover:scale-105"
                 />
               </div>
               <div>
@@ -132,7 +132,7 @@ function Home() {
                   height={1024}
                   loading="lazy"
                   alt="Serre agricole moderne protégée par un film plastique transparent"
-                  className="aspect-[5/4] w-full object-cover image-hover hover:scale-105"
+                  className="aspect-[4/3] w-full object-cover image-hover hover:scale-105"
                 />
               </div>
               <div>

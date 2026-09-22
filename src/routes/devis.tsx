@@ -21,12 +21,12 @@ export const Route = createFileRoute("/devis")({
 });
 function Quote() {
   return (
-    <section className="min-h-screen bg-secondary pb-24 pt-32">
+    <section className="surface-grid-dark min-h-screen bg-secondary pb-24 pt-32">
       <div className="container-wide">
         <p className="text-sm font-semibold uppercase tracking-widest text-highlight">
           Demande de devis
         </p>
-        <h1 className="mt-4 max-w-4xl text-5xl font-bold leading-tight sm:text-7xl">
+        <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-6xl">
           Parlez-nous de votre besoin.
         </h1>
         <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
@@ -36,7 +36,7 @@ function Quote() {
           <div className="rounded-lg bg-background p-6 shadow-sm sm:p-10">
             <LeadForm quote />
           </div>
-          <aside className="rounded-lg bg-primary-dark p-8 text-primary-foreground">
+          <aside className="diagonal-bottom surface-grid rounded-lg bg-primary-dark px-8 pb-14 pt-8 text-primary-foreground">
             <h2 className="text-2xl font-semibold">Une réponse construite pour vous.</h2>
             <p className="mt-4 text-sm leading-6 text-primary-foreground/70">
               LGM ne propose pas de catalogue tarifaire standard : les caractéristiques de chaque
