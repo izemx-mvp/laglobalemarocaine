@@ -49,7 +49,7 @@ export const Route = createFileRoute("/blog/$slug")({
   component: Article,
 });
 
-function ShareActions({ title }: { title: string }) {
+function ShareActions({ title, light = false }: { title: string; light?: boolean }) {
   const [copied, setCopied] = useState(false);
 
   const share = (network: "linkedin" | "whatsapp") => {
@@ -72,14 +72,14 @@ function ShareActions({ title }: { title: string }) {
   };
 
   return (
-    <div className="mt-8 flex flex-wrap items-center gap-2" aria-label="Partager cet article">
-      <span className="mr-2 text-xs font-semibold uppercase tracking-widest text-primary-foreground/60">
+    <div className="flex flex-wrap items-center gap-2" aria-label="Partager cet article">
+      <span className={`mr-2 text-xs font-semibold uppercase tracking-widest ${light ? "text-muted-foreground" : "text-primary-foreground/60"}`}>
         Partager
       </span>
       <Button
         type="button"
         size="icon"
-        variant="heroOutline"
+        variant={light ? "outline" : "heroOutline"}
         onClick={() => share("linkedin")}
         aria-label="Partager sur LinkedIn"
         title="Partager sur LinkedIn"
@@ -89,7 +89,7 @@ function ShareActions({ title }: { title: string }) {
       <Button
         type="button"
         size="icon"
-        variant="heroOutline"
+        variant={light ? "outline" : "heroOutline"}
         onClick={() => share("whatsapp")}
         aria-label="Partager sur WhatsApp"
         title="Partager sur WhatsApp"
@@ -99,14 +99,14 @@ function ShareActions({ title }: { title: string }) {
       <Button
         type="button"
         size="icon"
-        variant="heroOutline"
+        variant={light ? "outline" : "heroOutline"}
         onClick={copyLink}
         aria-label="Copier le lien"
         title="Copier le lien"
       >
         {copied ? <Check /> : <Copy />}
       </Button>
-      <span className="min-w-24 text-sm text-primary-foreground/70" aria-live="polite">
+      <span className={`min-w-24 text-sm ${light ? "text-muted-foreground" : "text-primary-foreground/70"}`} aria-live="polite">
         {copied ? "Lien copié" : ""}
       </span>
     </div>
@@ -147,7 +147,9 @@ function Article() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-primary-foreground/70">
               {post.excerpt}
             </p>
-            <ShareActions title={post.title} />
+            <div className="mt-8">
+              <ShareActions title={post.title} />
+            </div>
           </div>
         </header>
 
@@ -324,7 +326,7 @@ function Article() {
                 </div>
               </div>
               <div className="mt-10 flex flex-wrap items-center justify-between gap-5">
-                <ShareActions title={post.title} />
+                <ShareActions title={post.title} light />
                 <Button asChild variant="cta" size="lg">
                   <Link to="/devis">
                     Échanger sur votre besoin <ArrowRight />
