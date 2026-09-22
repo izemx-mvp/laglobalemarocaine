@@ -105,7 +105,7 @@ function Article() {
                   height={1024}
                   loading="lazy"
                   alt=""
-                    className="aspect-square h-full w-full object-cover"
+                  className="aspect-square h-full w-full object-cover"
                 />
                 <div className="p-5">
                   <p className="text-xs uppercase text-highlight">{p.category}</p>

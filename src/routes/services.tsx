@@ -66,7 +66,9 @@ function Services() {
               return (
                 <Reveal key={t as string} delay={i * 0.08}>
                   <article className="group relative min-h-72 overflow-hidden rounded-lg border bg-card p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                    <span className="pointer-events-none absolute right-5 top-2 font-display text-8xl font-bold text-primary/7">0{i + 1}</span>
+                    <span className="pointer-events-none absolute right-5 top-2 font-display text-8xl font-bold text-primary/7">
+                      0{i + 1}
+                    </span>
                     <Icon className="size-8 text-primary" />
                     <h2 className="mt-12 text-2xl font-semibold">{t as string}</h2>
                     <p className="mt-3 max-w-lg leading-7 text-muted-foreground">{d as string}</p>

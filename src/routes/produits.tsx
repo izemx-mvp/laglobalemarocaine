@@ -80,7 +80,12 @@ function Products() {
                     />
                     <div className="absolute left-4 top-4 flex max-w-[calc(100%-2rem)] flex-wrap gap-2">
                       {p.sectors.map((s) => (
-                        <span key={s} className="rounded-full bg-primary-dark px-3 py-1 text-xs font-semibold text-primary-foreground shadow-md">{s}</span>
+                        <span
+                          key={s}
+                          className="rounded-full bg-primary-dark px-3 py-1 text-xs font-semibold text-primary-foreground shadow-md"
+                        >
+                          {s}
+                        </span>
                       ))}
                     </div>
                   </div>

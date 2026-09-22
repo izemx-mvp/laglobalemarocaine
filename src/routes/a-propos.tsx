@@ -117,7 +117,10 @@ function About() {
             ].map(([I, t, d]) => {
               const Icon = I as typeof Factory;
               return (
-                <div key={t as string} className="rounded-lg bg-primary-dark p-7 text-primary-foreground shadow-lg">
+                <div
+                  key={t as string}
+                  className="rounded-lg bg-primary-dark p-7 text-primary-foreground shadow-lg"
+                >
                   <span className="grid size-11 place-items-center rounded-full bg-primary-foreground/10">
                     <Icon className="text-primary-foreground" />
                   </span>
@@ -142,11 +145,19 @@ function About() {
               "Production & contrôle",
               "Préparation logistique",
             ].map((x, i) => (
-              <div key={x} className="relative grid grid-cols-[3rem_1fr] items-start gap-6 pb-9 last:pb-0">
-                <span className="relative z-10 grid size-12 place-items-center rounded-full bg-highlight font-bold text-highlight-foreground shadow-md">0{i + 1}</span>
+              <div
+                key={x}
+                className="relative grid grid-cols-[3rem_1fr] items-start gap-6 pb-9 last:pb-0"
+              >
+                <span className="relative z-10 grid size-12 place-items-center rounded-full bg-highlight font-bold text-highlight-foreground shadow-md">
+                  0{i + 1}
+                </span>
                 <div className="pt-2">
                   <h3 className="text-xl font-semibold">{x}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">Une étape suivie par nos équipes pour assurer une réponse cohérente à votre usage.</p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Une étape suivie par nos équipes pour assurer une réponse cohérente à votre
+                    usage.
+                  </p>
                 </div>
               </div>
             ))}

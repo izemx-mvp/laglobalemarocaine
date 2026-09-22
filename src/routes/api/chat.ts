@@ -26,7 +26,10 @@ export const Route = createFileRoute("/api/chat")({
         }
         const key = process.env["LOVABLE_API_KEY"];
         if (!key) {
-          return Response.json({ message: "Le service de conversation est indisponible." }, { status: 503 });
+          return Response.json(
+            { message: "Le service de conversation est indisponible." },
+            { status: 503 },
+          );
         }
 
         try {
@@ -57,7 +60,10 @@ export const Route = createFileRoute("/api/chat")({
             return new Response(null, { status: 499 });
           }
           console.error("LGM chat error", error);
-          return Response.json({ message: "Le service de conversation est momentanément indisponible." }, { status: 500 });
+          return Response.json(
+            { message: "Le service de conversation est momentanément indisponible." },
+            { status: 500 },
+          );
         }
       },
     },

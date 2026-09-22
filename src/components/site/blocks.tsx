@@ -63,17 +63,27 @@ export function Hero({
           transition={{ duration: 0.7 }}
           className={`${align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-4xl"} text-hero-foreground`}
         >
-          <p className={`mb-5 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-hero-foreground/80 ${align === "center" ? "justify-center" : ""}`}>
+          <p
+            className={`mb-5 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-hero-foreground/80 ${align === "center" ? "justify-center" : ""}`}
+          >
             <span className="h-0.5 w-9 bg-highlight" aria-hidden="true" />
             {eyebrow}
           </p>
-          <h1 className={`${full ? "text-5xl sm:text-6xl lg:text-7xl" : "text-4xl sm:text-5xl lg:text-6xl"} max-w-4xl font-bold leading-[1.04]`}>
+          <h1
+            className={`${full ? "text-5xl sm:text-6xl lg:text-7xl" : "text-4xl sm:text-5xl lg:text-6xl"} max-w-4xl font-bold leading-[1.04]`}
+          >
             {title}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-7 text-hero-foreground/80 sm:text-lg">
             {description}
           </p>
-          {children && <div className={`mt-9 flex flex-wrap gap-3 ${align === "center" ? "justify-center" : ""}`}>{children}</div>}
+          {children && (
+            <div
+              className={`mt-9 flex flex-wrap gap-3 ${align === "center" ? "justify-center" : ""}`}
+            >
+              {children}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>

@@ -179,14 +179,25 @@
 }
 @utility surface-grid {
   background-image:
-    linear-gradient(color-mix(in oklab, var(--primary-foreground) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--primary-foreground) 5%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      color-mix(in oklab, var(--primary-foreground) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--primary-foreground) 5%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 32px 32px;
 }
 @utility surface-grid-dark {
   background-image:
     linear-gradient(color-mix(in oklab, var(--primary-dark) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--primary-dark) 4%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--primary-dark) 4%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 32px 32px;
 }
 @utility diagonal-top {
@@ -197,8 +208,16 @@
 }
 
 @keyframes typing-dot {
-  0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
-  30% { opacity: 1; transform: translateY(-3px); }
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
 }
 @utility typing-dot {
   animation: typing-dot 1.1s ease-in-out infinite;

@@ -145,7 +145,7 @@ function Footer() {
           </div>
         </div>
         <div>
-          <h3 className="text-sm uppercase tracking-widest text-primary-foreground/50">
+          <h3 className="text-sm uppercase tracking-widest text-primary-foreground/70">
             Navigation
           </h3>
           <nav className="mt-5 grid gap-3">
@@ -157,7 +157,7 @@ function Footer() {
           </nav>
         </div>
         <div>
-          <h3 className="text-sm uppercase tracking-widest text-primary-foreground/50">
+          <h3 className="text-sm uppercase tracking-widest text-primary-foreground/70">
             Nous joindre
           </h3>
           <div className="mt-5 space-y-3 text-sm">
