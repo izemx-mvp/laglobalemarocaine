@@ -1,5 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import {
   Clock3,
   Facebook,
@@ -31,10 +32,15 @@ const links = [
   ["/contact", "Contact"],
 ] as const;
 export function SiteShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.main key={pathname} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}>
+          {children}
+        </motion.main>
+      </AnimatePresence>
       <Footer />
       <Chatbot />
     </>
@@ -126,11 +132,9 @@ function Footer() {
     <footer className="surface-grid bg-primary-dark pt-16 text-primary-foreground">
       <div className="container-wide grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_.65fr_1fr_.9fr]">
         <div>
-          <img
-            src={logo.url}
-            alt="LGM La Globale Marocaine"
-            className="h-20 w-auto max-w-[280px] object-contain"
-          />
+          <div className="inline-flex rounded-md bg-background p-3 shadow-sm">
+            <img src={logo.url} alt="LGM La Globale Marocaine" className="h-16 w-auto max-w-[250px] object-contain" />
+          </div>
           <p className="mt-5 max-w-sm text-sm leading-6 text-primary-foreground/65">
             Fabricant marocain d’emballages plastiques industriels. Une expertise de proximité,
             construite depuis 1986.
@@ -175,16 +179,15 @@ function Footer() {
               <Mail className="size-4 shrink-0" />
               {contact.email}
             </a>
-            <p className="text-primary-foreground/65">Casablanca · Had Soualem</p>
+            <a href="https://maps.app.goo.gl/eCURBrHbLTEBwmPRA" target="_blank" rel="noreferrer" className="block text-primary-foreground/75 hover:text-primary-foreground">Localisation Google Maps</a>
           </div>
         </div>
         <div>
           <h3 className="text-sm uppercase tracking-widest text-primary-foreground/70">Horaires</h3>
           <div className="mt-5 space-y-3 text-sm text-primary-foreground/75">
             <p className="flex gap-3"><Clock3 className="size-4 shrink-0" /> Lundi–vendredi<br />9h00–18h00</p>
-            <p>Samedi · 9h00–13h00*</p>
+            <p>Samedi · 9h00–13h00</p>
             <p>Dimanche · Fermé</p>
-            <p className="text-xs text-primary-foreground/65">* À confirmer avant votre visite.</p>
           </div>
         </div>
       </div>

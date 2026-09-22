@@ -62,7 +62,7 @@ function About() {
           {[
             ["39 ans", "d’expérience"],
             ["50–100", "collaborateurs"],
-            ["2", "implantations"],
+            ["01", "localisation publique"],
             ["5", "familles de produits"],
           ].map((x) => (
             <div key={x[0]}>
@@ -87,21 +87,16 @@ function About() {
           <Reveal>
             <SectionHeading
               eyebrow="Notre implantation"
-              title="Casablanca pour vous écouter. Had Soualem pour produire."
-              text="Notre siège coordonne les relations commerciales et administratives. Notre usine concentre le savoir-faire de transformation et de production."
+              title="Une présence claire, au plus près de vos demandes."
+              text="Notre équipe centralise les échanges commerciaux, administratifs et techniques depuis notre localisation de Casablanca."
             />
-            <div className="mt-7 grid gap-4 sm:grid-cols-2">
+            <div className="mt-7">
               <div className="border-t border-primary pt-4">
                 <MapPin className="text-primary" />
-                <h3 className="mt-3 font-semibold">Siège social</h3>
+                <h3 className="mt-3 font-semibold">La Globale Marocaine</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Centre Commercial Riad, Casablanca
                 </p>
-              </div>
-              <div className="border-t border-primary pt-4">
-                <Factory className="text-primary" />
-                <h3 className="mt-3 font-semibold">Usine</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Z.I. du Sahel, Had Soualem</p>
               </div>
             </div>
           </Reveal>

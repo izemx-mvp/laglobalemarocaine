@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock3, Factory, Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Clock3, Mail, MapPin, Phone, Printer } from "lucide-react";
 import { LeadForm } from "@/components/site/forms";
 import { Hero } from "@/components/site/blocks";
 import { contact } from "@/components/site/site-data";
@@ -7,13 +7,13 @@ import hero from "@/assets/logistics-pallets.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & implantations | La Globale Marocaine" },
+      { title: "Contact & localisation | La Globale Marocaine" },
       {
         name: "description",
-        content: "Contactez le siège LGM à Casablanca ou l’usine de production à Had Soualem.",
+        content: "Contactez La Globale Marocaine et localisez l’entreprise à Casablanca.",
       },
       { property: "og:title", content: "Contactez La Globale Marocaine" },
-      { property: "og:description", content: "Siège à Casablanca, usine à Had Soualem." },
+      { property: "og:description", content: "Coordonnées et localisation de LGM à Casablanca." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -21,27 +21,13 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 function Contact() {
-  const locations = [
-    {
-      title: "Siège social",
-      icon: MapPin,
-      address: contact.office,
-      q: "61 Centre Commercial Riad Casablanca Maroc",
-    },
-    {
-      title: "Usine de production",
-      icon: Factory,
-      address: contact.factory,
-      q: "Z.I. du Sahel 25 Had Soualem Maroc",
-    },
-  ];
   return (
     <>
       <Hero
         image={hero}
         eyebrow="Contact"
-        title="Deux implantations. Une équipe à votre écoute."
-        description="Échangez avec notre siège à Casablanca ou notre équipe de production à Had Soualem."
+        title="Un point de contact. Une équipe à votre écoute."
+        description="Échangez avec notre équipe ou retrouvez directement La Globale Marocaine à Casablanca."
       />
       <section className="section-pad">
         <div className="container-wide grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
@@ -74,13 +60,10 @@ function Contact() {
                 <dt>Lundi–vendredi</dt>
                 <dd>9h00–18h00</dd>
                 <dt>Samedi</dt>
-                <dd>9h00–13h00*</dd>
+                <dd>9h00–13h00</dd>
                 <dt>Dimanche</dt>
                 <dd>Fermé</dd>
               </dl>
-              <p className="mt-3 text-xs text-muted-foreground">
-                * Horaire du samedi à confirmer avant votre visite.
-              </p>
             </div>
           </div>
           <div className="rounded-lg border bg-card p-6 shadow-sm sm:p-9">
@@ -94,28 +77,35 @@ function Contact() {
       </section>
       <section className="section-pad diagonal-top surface-grid-dark bg-secondary pt-32">
         <div className="container-wide">
-          <h2 className="text-4xl font-bold">Nos implantations</h2>
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {locations.map((l) => {
-              const Icon = l.icon;
-              return (
-                <article key={l.title} className="overflow-hidden rounded-lg bg-card shadow-sm">
-                  <iframe
-                    title={`Carte Google Maps — ${l.title}`}
-                    src={`https://www.google.com/maps?q=${encodeURIComponent(l.q)}&output=embed`}
-                    className="h-72 w-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                  <div className="p-6">
-                    <Icon className="text-primary" />
-                    <h3 className="mt-4 text-xl font-semibold">{l.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{l.address}</p>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="grid items-end gap-8 lg:grid-cols-[.7fr_1.3fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase text-highlight">Nous trouver</p>
+              <h2 className="mt-4 text-4xl font-bold">La Globale Marocaine à Casablanca.</h2>
+              <p className="mt-5 leading-7 text-muted-foreground">Préparez votre trajet et ouvrez l’itinéraire directement dans Google Maps.</p>
+              <a href="https://maps.app.goo.gl/eCURBrHbLTEBwmPRA" target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-3 font-semibold text-primary transition hover:text-highlight">
+                <MapPin /> Ouvrir dans Google Maps
+              </a>
+            </div>
+            <article className="overflow-hidden rounded-lg bg-card shadow-sm">
+              <iframe
+                title="Carte Google Maps — La Globale Marocaine"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.537800809041!2d-7.614589784408567!3d33.591461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d29dec3ba36f%3A0x2cf5958c1da8d7e8!2sLa%20Globale%20Marocaine!5e0!3m2!1sfr!2sma!4v1790090568954!5m2!1sfr!2sma"
+                className="h-[28rem] w-full border-0"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+              <div className="flex items-start gap-4 p-6"><MapPin className="shrink-0 text-primary" /><div><h3 className="text-xl font-semibold">La Globale Marocaine</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{contact.office}</p></div></div>
+            </article>
           </div>
+        </div>
+      </section>
+      <section className="section-pad">
+        <div className="container-wide grid gap-px bg-border sm:grid-cols-3">
+          {[[Phone, "Par téléphone", contact.phone], [Mail, "Par e-mail", contact.email], [Clock3, "Horaires", "Lun–ven 9h–18h · Sam 9h–13h"]].map(([I, title, detail]) => {
+            const Icon = I as typeof Phone;
+            return <div key={title as string} className="bg-background p-7"><Icon className="text-highlight" /><h3 className="mt-8 text-xl font-semibold">{title as string}</h3><p className="mt-2 text-sm text-muted-foreground">{detail as string}</p></div>;
+          })}
         </div>
       </section>
     </>

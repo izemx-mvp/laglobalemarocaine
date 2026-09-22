@@ -147,7 +147,7 @@ function Home() {
                   industriels et acteurs agricoles avec réactivité.
                 </p>
                 <div className="mt-7 flex items-center gap-3 font-medium text-primary">
-                  <MapPin /> Casablanca · Had Soualem
+                  <MapPin /> Casablanca, Maroc
                 </div>
               </div>
             </div>
