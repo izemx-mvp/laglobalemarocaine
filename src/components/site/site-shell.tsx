@@ -98,7 +98,7 @@ function Header() {
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent className="w-[88%] pt-16">
+            <SheetContent className="!w-[88vw] max-w-[22rem] pt-16">
               <SheetTitle className="sr-only">Navigation</SheetTitle>
               <SheetDescription className="sr-only">Menu principal du site</SheetDescription>
               <nav className="flex flex-col">
