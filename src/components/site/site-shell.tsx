@@ -47,31 +47,15 @@ export function SiteShell({ children }: { children: ReactNode }) {
 }
 
 function Header() {
-  const [scrolled, setScrolled] = useState(false);
   useRouterState({ select: (s) => s.location.pathname });
-  useEffect(() => {
-    const fn = () => setScrolled(scrollY > 24);
-    fn();
-    addEventListener("scroll", fn, { passive: true });
-    return () => removeEventListener("scroll", fn);
-  }, []);
-  const light = !scrolled;
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-out ${scrolled ? "bg-background/95 shadow-[0_10px_30px_color-mix(in_oklab,var(--foreground)_10%,transparent)] backdrop-blur" : "bg-transparent shadow-none"}`}
-    >
+    <header className="fixed inset-x-0 top-0 z-40 bg-background/95 shadow-[0_10px_30px_color-mix(in_oklab,var(--foreground)_10%,transparent)] backdrop-blur transition-[background-color,box-shadow] duration-500 ease-out">
       <div className="container-wide grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
         <Link to="/" aria-label="Accueil La Globale Marocaine" className="relative block h-12 min-w-0 max-w-[190px]">
           <img
             src={logo.url}
             alt="La Globale Marocaine"
-            className={`absolute inset-0 h-12 w-auto max-w-[190px] object-contain transition-all duration-500 ${light ? "translate-y-1 opacity-0" : "translate-y-0 opacity-100"}`}
-          />
-          <img
-            src={whiteLogo}
-            alt=""
-            aria-hidden="true"
-            className={`absolute inset-0 h-12 w-auto max-w-[190px] object-contain transition-all duration-500 ${light ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+            className="h-12 w-auto max-w-[190px] object-contain"
           />
         </Link>
         <div className="hidden items-center gap-6 lg:flex">
@@ -81,7 +65,7 @@ function Header() {
                 key={to}
                 to={to}
                 activeOptions={{ exact: to === "/" }}
-                className={`text-sm font-medium transition hover:text-highlight ${light ? "text-hero-foreground" : "text-foreground"}`}
+                className="text-sm font-medium text-foreground transition hover:text-highlight"
                 activeProps={{ className: "text-highlight" }}
               >
                 {label}
@@ -95,11 +79,7 @@ function Header() {
         <div className="lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                size="icon"
-                variant={light ? "heroOutline" : "outline"}
-                aria-label="Ouvrir le menu"
-              >
+              <Button size="icon" variant="outline" aria-label="Ouvrir le menu">
                 <Menu />
               </Button>
             </SheetTrigger>
