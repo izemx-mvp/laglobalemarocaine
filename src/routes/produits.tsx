@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CtaBand, Hero, Reveal, SectionHeading } from "@/components/site/blocks";
 import { products } from "@/components/site/site-data";
 import hero from "@/assets/bags-covers.jpg";
+import detail from "@/assets/extrusion-detail.jpg";
 export const Route = createFileRoute("/produits")({
   head: () => ({
     meta: [
@@ -106,6 +107,21 @@ function Products() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="section-pad diagonal-top bg-primary-dark pt-32 text-primary-foreground">
+        <div className="container-wide grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <div className="overflow-hidden rounded-lg">
+              <img src={detail} width={1536} height={1024} loading="lazy" alt="Film plastique en cours de fabrication" className="aspect-[16/9] w-full object-cover image-hover hover:scale-105" />
+            </div>
+          </Reveal>
+          <Reveal>
+            <SectionHeading light eyebrow="Le bon format" title="Une gamme définie par l’usage." text="Le produit, la manipulation, le stockage et l’équipement de conditionnement orientent le choix de la solution." />
+            <div className="mt-8 grid grid-cols-2 gap-px bg-primary-foreground/20">
+              {["Dimensions", "Épaisseur", "Conditionnement", "Application"].map((item, i) => <div key={item} className="bg-primary-dark p-5"><span className="text-sm font-bold text-highlight">0{i + 1}</span><p className="mt-2 font-medium">{item}</p></div>)}
+            </div>
+          </Reveal>
         </div>
       </section>
       <CtaBand

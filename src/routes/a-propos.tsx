@@ -3,6 +3,7 @@ import { Factory, Handshake, MapPin, ShieldCheck } from "lucide-react";
 import { CtaBand, Hero, Reveal, SectionHeading } from "@/components/site/blocks";
 import hero from "@/assets/morocco-factory.jpg";
 import process from "@/assets/extrusion-detail.jpg";
+import quality from "@/assets/quality-lab.jpg";
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
     meta: [
@@ -162,6 +163,25 @@ function About() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="section-pad">
+        <div className="container-wide grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
+          <Reveal>
+            <div className="relative overflow-hidden rounded-lg">
+              <img src={quality} width={1536} height={1024} loading="lazy" alt="Contrôle d’un film plastique en environnement industriel" className="aspect-[4/3] w-full object-cover image-hover hover:scale-105" />
+              <div className="absolute bottom-0 left-0 bg-highlight px-6 py-5 text-highlight-foreground">
+                <span className="block font-display text-3xl font-bold">Depuis 1986</span>
+                <span className="text-sm">La continuité au service de la maîtrise</span>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <SectionHeading eyebrow="Culture industrielle" title="Observer, contrôler, progresser." text="La qualité se construit à chaque étape : compréhension de l’usage, réglage de la fabrication, attention portée à la régularité et préparation soignée." />
+            <div className="mt-8 grid gap-px bg-border sm:grid-cols-3">
+              {["Écoute", "Maîtrise", "Continuité"].map((item, i) => <div key={item} className="bg-background p-5"><span className="text-sm font-bold text-highlight">0{i + 1}</span><p className="mt-3 font-semibold">{item}</p></div>)}
+            </div>
+          </Reveal>
         </div>
       </section>
       <CtaBand
