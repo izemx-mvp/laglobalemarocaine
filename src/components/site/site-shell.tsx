@@ -18,7 +18,7 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
-import logo from "@/assets/lgm-logo.png.asset.json";
+import logo from "@/assets/lgm-logo.png";
 import { contact } from "./site-data";
 import { Chatbot } from "./chatbot";
 
@@ -53,7 +53,7 @@ function Header() {
       <div className="container-wide grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
         <Link to="/" aria-label="Accueil La Globale Marocaine" className="relative block h-12 min-w-0 max-w-[190px]">
           <img
-            src={logo.url}
+            src={logo}
             alt="La Globale Marocaine"
             className="h-12 w-auto max-w-[190px] object-contain"
           />
@@ -112,7 +112,7 @@ function Footer() {
       <div className="container-wide grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_.65fr_1fr_.9fr]">
         <div>
           <div className="inline-flex rounded-md bg-background p-3 shadow-sm">
-            <img src={logo.url} alt="LGM La Globale Marocaine" className="h-16 w-auto max-w-[250px] object-contain" />
+            <img src={logo} alt="LGM La Globale Marocaine" className="h-16 w-auto max-w-[250px] object-contain" />
           </div>
           <p className="mt-5 max-w-sm text-sm leading-6 text-primary-foreground/65">
             Fabricant marocain d’emballages plastiques industriels. Une expertise de proximité,
