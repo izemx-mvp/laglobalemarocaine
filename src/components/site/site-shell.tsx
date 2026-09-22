@@ -1,16 +1,12 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import {
-  ArrowLeft,
-  ArrowRight,
-  Bot,
-  ChevronRight,
   Clock3,
+  Facebook,
+  Linkedin,
   Mail,
   Menu,
-  Package,
   Phone,
-  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +18,9 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import logo from "@/assets/lgm-logo.png.asset.json";
+import whiteLogo from "@/assets/lgm-logo-white.png";
 import { contact } from "./site-data";
+import { Chatbot } from "./chatbot";
 
 const links = [
   ["/", "Accueil"],
@@ -45,7 +43,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useRouterState({ select: (s) => s.location.pathname });
   useEffect(() => {
     const fn = () => setScrolled(scrollY > 24);
     fn();
@@ -55,14 +53,20 @@ function Header() {
   const light = !scrolled;
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${scrolled ? "bg-background/95 shadow-sm backdrop-blur" : "bg-transparent"}`}
+      className={`fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow,backdrop-filter] duration-500 ease-out ${scrolled ? "bg-background/95 shadow-[0_10px_30px_color-mix(in_oklab,var(--foreground)_10%,transparent)] backdrop-blur" : "bg-transparent shadow-none"}`}
     >
       <div className="container-wide grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
-        <Link to="/" aria-label="Accueil La Globale Marocaine" className="min-w-0">
+        <Link to="/" aria-label="Accueil La Globale Marocaine" className="relative block h-12 min-w-0 max-w-[190px]">
           <img
             src={logo.url}
             alt="La Globale Marocaine"
-            className={`h-12 w-auto max-w-[190px] object-contain transition ${light ? "brightness-0 invert" : "filter-none"}`}
+            className={`absolute inset-0 h-12 w-auto max-w-[190px] object-contain transition-all duration-500 ${light ? "translate-y-1 opacity-0" : "translate-y-0 opacity-100"}`}
+          />
+          <img
+            src={whiteLogo}
+            alt=""
+            aria-hidden="true"
+            className={`absolute inset-0 h-12 w-auto max-w-[190px] object-contain transition-all duration-500 ${light ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
           />
         </Link>
         <div className="hidden items-center gap-6 lg:flex">
@@ -119,18 +123,26 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="bg-primary-dark pt-16 text-primary-foreground">
-      <div className="container-wide grid gap-12 pb-12 md:grid-cols-2 lg:grid-cols-[1.25fr_.7fr_1fr]">
+    <footer className="surface-grid bg-primary-dark pt-16 text-primary-foreground">
+      <div className="container-wide grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_.65fr_1fr_.9fr]">
         <div>
           <img
             src={logo.url}
             alt="LGM La Globale Marocaine"
-            className="h-20 w-auto max-w-[280px] object-contain brightness-0 invert"
+            className="h-20 w-auto max-w-[280px] object-contain"
           />
           <p className="mt-5 max-w-sm text-sm leading-6 text-primary-foreground/65">
             Fabricant marocain d’emballages plastiques industriels. Une expertise de proximité,
             construite depuis 1986.
           </p>
+          <div className="mt-6 flex gap-2" aria-label="Réseaux sociaux">
+            <span className="grid size-9 place-items-center rounded-full border border-primary-foreground/30 text-primary-foreground/75" aria-label="LinkedIn à venir">
+              <Linkedin className="size-4" />
+            </span>
+            <span className="grid size-9 place-items-center rounded-full border border-primary-foreground/30 text-primary-foreground/75" aria-label="Facebook à venir">
+              <Facebook className="size-4" />
+            </span>
+          </div>
         </div>
         <div>
           <h3 className="text-sm uppercase tracking-widest text-primary-foreground/50">
@@ -166,127 +178,22 @@ function Footer() {
             <p className="text-primary-foreground/65">Casablanca · Had Soualem</p>
           </div>
         </div>
+        <div>
+          <h3 className="text-sm uppercase tracking-widest text-primary-foreground/70">Horaires</h3>
+          <div className="mt-5 space-y-3 text-sm text-primary-foreground/75">
+            <p className="flex gap-3"><Clock3 className="size-4 shrink-0" /> Lundi–vendredi<br />9h00–18h00</p>
+            <p>Samedi · 9h00–13h00*</p>
+            <p>Dimanche · Fermé</p>
+            <p className="text-xs text-primary-foreground/65">* À confirmer avant votre visite.</p>
+          </div>
+        </div>
       </div>
       <div className="border-t border-primary-foreground/15">
-        <div className="container-wide flex flex-col gap-3 py-5 text-xs text-primary-foreground/50 sm:flex-row sm:justify-between">
+        <div className="container-wide flex flex-col gap-3 py-5 text-xs text-primary-foreground/75 sm:flex-row sm:justify-between">
           <span>© 2026 La Globale Marocaine SARL</span>
           <span>Mentions légales · Confidentialité</span>
         </div>
       </div>
     </footer>
-  );
-}
-
-type Branch = "menu" | "products" | "price" | "contact";
-function Chatbot() {
-  const [open, setOpen] = useState(false),
-    [branch, setBranch] = useState<Branch>("menu");
-  const options = [
-    { label: "🏭 Nos produits", b: "products" as Branch },
-    { label: "💰 Comment obtenir une estimation ?", b: "price" as Branch },
-    { label: "📋 Faire une demande de devis", to: "/devis" as const },
-    { label: "🕐 Horaires & contact", b: "contact" as Branch },
-    { label: "👤 Parler à quelqu’un", to: "/contact" as const },
-  ];
-  return (
-    <div className="fixed bottom-5 right-5 z-50">
-      <Button
-        size="icon"
-        onClick={() => setOpen(!open)}
-        aria-label={open ? "Fermer l’assistant" : "Ouvrir LGM Assistant"}
-        className="h-14 w-14 rounded-full animate-pulse-ring shadow-xl"
-      >
-        {open ? <X /> : <Bot />}
-      </Button>
-      {open && (
-        <div className="absolute bottom-17 right-0 w-[min(390px,calc(100vw-2rem))] overflow-hidden rounded-lg border bg-background shadow-2xl">
-          <div className="flex items-center gap-3 bg-primary-dark p-4 text-primary-foreground">
-            <Bot />
-            <div>
-              <h2 className="font-semibold">LGM Assistant</h2>
-              <p className="text-xs text-primary-foreground/65">Information & orientation</p>
-            </div>
-          </div>
-          <div className="max-h-[65vh] overflow-y-auto p-5">
-            <div className="rounded-md bg-secondary p-4 text-sm leading-6">
-              {branch === "menu" &&
-                "Bonjour 👋 Bienvenue chez La Globale Marocaine. Je peux vous renseigner sur nos produits ou vous aider à préparer votre demande de devis. Comment puis-je vous aider ?"}
-              {branch === "products" &&
-                "Nous fabriquons des films plastiques, sacs industriels, housses de protection, gaines et films pour serres agricoles."}
-              {branch === "price" &&
-                "Chaque demande dépend des dimensions, de la matière, de l’épaisseur et du volume. Notre équipe prépare donc une proposition personnalisée après étude de votre besoin."}
-              {branch === "contact" && (
-                <>
-                  Lundi–vendredi : 9h–18h
-                  <br />
-                  Samedi : 9h–13h (à confirmer)
-                  <br />
-                  Dimanche : fermé
-                  <br />
-                  <br />
-                  {contact.phone}
-                  <br />
-                  {contact.email}
-                </>
-              )}
-            </div>
-            <div className="mt-4 grid gap-2">
-              {branch === "menu" ? (
-                options.map((o) =>
-                  o.to ? (
-                    <Button
-                      key={o.label}
-                      asChild
-                      variant="outline"
-                      className="h-auto justify-between py-3 text-left whitespace-normal"
-                    >
-                      <Link to={o.to} onClick={() => setOpen(false)}>
-                        {o.label}
-                        <ChevronRight />
-                      </Link>
-                    </Button>
-                  ) : (
-                    <Button
-                      key={o.label}
-                      variant="outline"
-                      className="h-auto justify-between py-3 text-left whitespace-normal"
-                      onClick={() => setBranch(o.b)}
-                    >
-                      {o.label}
-                      <ChevronRight />
-                    </Button>
-                  ),
-                )
-              ) : (
-                <>
-                  <Button asChild variant="default">
-                    <Link
-                      to={
-                        branch === "products"
-                          ? "/produits"
-                          : branch === "price"
-                            ? "/devis"
-                            : "/contact"
-                      }
-                      onClick={() => setOpen(false)}
-                    >
-                      {branch === "products"
-                        ? "Voir tous les produits"
-                        : branch === "price"
-                          ? "Préparer ma demande"
-                          : "Nous contacter"}
-                      <ArrowRight />
-                    </Link>
-                  </Button>
-                  <Button variant="ghost" onClick={() => setBranch("menu")}>
-                    <ArrowLeft /> Retour au menu
-                  </Button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
   );
 }
