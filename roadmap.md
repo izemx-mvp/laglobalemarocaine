@@ -9,3 +9,4 @@
 - [x] Unifier la localisation, retirer la mention à confirmer et améliorer le pied de page
 - [x] Ajouter des transitions fluides et vérifier ordinateur/mobile
 - [x] Enrichir la page article avec une mise en page éditoriale, le partage et la progression de lecture
+- [ ] Régulariser la grille du blog et ajouter quatre familles de produits

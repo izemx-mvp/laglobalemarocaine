@@ -42,6 +42,38 @@ export const products = [
     image: greenhouse,
     sectors: ["Agriculture"],
   },
+  {
+    slug: "films-retractables",
+    title: "Films rétractables",
+    description:
+      "Films conçus pour le regroupement, la stabilisation et la protection de produits conditionnés.",
+    image: extrusion,
+    sectors: ["Industrie", "Agroalimentaire", "Logistique"],
+  },
+  {
+    slug: "films-etirables",
+    title: "Films étirables",
+    description:
+      "Solutions de maintien et de sécurisation des palettes pour le stockage et le transport.",
+    image: logistics,
+    sectors: ["Industrie", "Logistique"],
+  },
+  {
+    slug: "sachets-plastiques",
+    title: "Sachets plastiques",
+    description:
+      "Sachets en différents formats pour le conditionnement et la protection de pièces ou produits.",
+    image: bags,
+    sectors: ["Industrie", "Agroalimentaire"],
+  },
+  {
+    slug: "sacs-poubelle-industriels",
+    title: "Sacs-poubelle industriels",
+    description:
+      "Sacs résistants adaptés à la collecte et à la gestion des déchets en environnements professionnels.",
+    image: film,
+    sectors: ["Industrie", "Construction", "Logistique"],
+  },
 ];
 
 export const posts = [

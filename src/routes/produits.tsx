@@ -48,7 +48,7 @@ function Products() {
       />
       <section className="section-pad surface-grid-dark">
         <div className="container-wide">
-          <SectionHeading eyebrow="Gamme LGM" title="Cinq familles. Des possibilités sur mesure." />
+          <SectionHeading eyebrow="Gamme LGM" title="Neuf familles. Des possibilités sur mesure." />
           <div
             className="mt-10 flex flex-wrap gap-2"
             role="tablist"
@@ -68,8 +68,8 @@ function Products() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {shown.map((p, i) => (
-              <Reveal key={p.slug} delay={i * 0.06}>
-                <article className="group overflow-hidden rounded-lg border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <Reveal key={p.slug} delay={i * 0.06} className="h-full">
+                <article className="group flex h-full flex-col overflow-hidden rounded-lg border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                   <div className="relative overflow-hidden">
                     <img
                       src={p.image}
@@ -90,13 +90,13 @@ function Products() {
                       ))}
                     </div>
                   </div>
-                  <div className="p-7">
+                  <div className="flex flex-1 flex-col p-7">
                     <h2 className="text-2xl font-semibold">{p.title}</h2>
                     <p className="mt-3 leading-7 text-muted-foreground">{p.description}</p>
                     <Button
                       asChild
                       variant="cta"
-                      className="mt-7 h-auto whitespace-normal py-3 text-center"
+                      className="mt-auto h-auto whitespace-normal py-3 pt-3 text-center"
                     >
                       <Link to="/devis">
                         Demander un devis pour ce produit <ArrowRight />
