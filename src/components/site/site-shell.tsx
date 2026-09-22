@@ -19,7 +19,6 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import logo from "@/assets/lgm-logo.png.asset.json";
-import whiteLogo from "@/assets/lgm-logo-white.png";
 import { contact } from "./site-data";
 import { Chatbot } from "./chatbot";
 
