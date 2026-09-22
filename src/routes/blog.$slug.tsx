@@ -19,7 +19,7 @@ import { useState } from "react";
 import { Reveal } from "@/components/site/blocks";
 import { Button } from "@/components/ui/button";
 import { posts } from "@/components/site/site-data";
-import logo from "@/assets/lgm-logo.png.asset.json";
+import logo from "@/assets/lgm-logo.png";
 import productionImage from "@/assets/industrial-production.jpg";
 
 const sections = [
@@ -315,7 +315,7 @@ function Article() {
             <Reveal>
               <div className="mt-16 flex flex-col gap-6 border-y border-border py-8 sm:flex-row sm:items-center">
                 <div className="flex size-20 shrink-0 items-center justify-center rounded-lg border border-border bg-background p-3">
-                  <img src={logo.url} alt="LGM" className="h-full w-full object-contain" />
+                  <img src={logo} alt="LGM" className="h-full w-full object-contain" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-highlight">Auteur</p>
