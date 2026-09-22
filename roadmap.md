@@ -8,3 +8,4 @@
 - [x] Enrichir chaque page avec des sections visuelles et du contenu utile
 - [x] Unifier la localisation, retirer la mention à confirmer et améliorer le pied de page
 - [x] Ajouter des transitions fluides et vérifier ordinateur/mobile
+- [ ] Enrichir la page article avec une mise en page éditoriale, le partage et la progression de lecture
