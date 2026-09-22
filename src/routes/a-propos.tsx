@@ -3,6 +3,7 @@ import { Factory, Handshake, MapPin, ShieldCheck } from "lucide-react";
 import { CtaBand, Hero, Reveal, SectionHeading } from "@/components/site/blocks";
 import hero from "@/assets/morocco-factory.jpg";
 import process from "@/assets/extrusion-detail.jpg";
+import quality from "@/assets/quality-lab.jpg";
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
     meta: [
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/a-propos")({
       {
         name: "description",
         content:
-          "Découvrez l’histoire, les valeurs et l’outil industriel de La Globale Marocaine à Casablanca et Had Soualem.",
+          "Découvrez l’histoire, les valeurs et le savoir-faire industriel de La Globale Marocaine à Casablanca.",
       },
       { property: "og:title", content: "Notre histoire depuis 1986 — LGM" },
       {
@@ -61,7 +62,7 @@ function About() {
           {[
             ["39 ans", "d’expérience"],
             ["50–100", "collaborateurs"],
-            ["2", "implantations"],
+            ["01", "localisation publique"],
             ["5", "familles de produits"],
           ].map((x) => (
             <div key={x[0]}>
@@ -86,21 +87,16 @@ function About() {
           <Reveal>
             <SectionHeading
               eyebrow="Notre implantation"
-              title="Casablanca pour vous écouter. Had Soualem pour produire."
-              text="Notre siège coordonne les relations commerciales et administratives. Notre usine concentre le savoir-faire de transformation et de production."
+              title="Une présence claire, au plus près de vos demandes."
+              text="Notre équipe centralise les échanges commerciaux, administratifs et techniques depuis notre localisation de Casablanca."
             />
-            <div className="mt-7 grid gap-4 sm:grid-cols-2">
+            <div className="mt-7">
               <div className="border-t border-primary pt-4">
                 <MapPin className="text-primary" />
-                <h3 className="mt-3 font-semibold">Siège social</h3>
+                <h3 className="mt-3 font-semibold">La Globale Marocaine</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Centre Commercial Riad, Casablanca
                 </p>
-              </div>
-              <div className="border-t border-primary pt-4">
-                <Factory className="text-primary" />
-                <h3 className="mt-3 font-semibold">Usine</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Z.I. du Sahel, Had Soualem</p>
               </div>
             </div>
           </Reveal>
@@ -162,6 +158,25 @@ function About() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="section-pad">
+        <div className="container-wide grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
+          <Reveal>
+            <div className="relative overflow-hidden rounded-lg">
+              <img src={quality} width={1536} height={1024} loading="lazy" alt="Contrôle d’un film plastique en environnement industriel" className="aspect-[4/3] w-full object-cover image-hover hover:scale-105" />
+              <div className="absolute bottom-0 left-0 bg-highlight px-6 py-5 text-highlight-foreground">
+                <span className="block font-display text-3xl font-bold">Depuis 1986</span>
+                <span className="text-sm">La continuité au service de la maîtrise</span>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <SectionHeading eyebrow="Culture industrielle" title="Observer, contrôler, progresser." text="La qualité se construit à chaque étape : compréhension de l’usage, réglage de la fabrication, attention portée à la régularité et préparation soignée." />
+            <div className="mt-8 grid gap-px bg-border sm:grid-cols-3">
+              {["Écoute", "Maîtrise", "Continuité"].map((item, i) => <div key={item} className="bg-background p-5"><span className="text-sm font-bold text-highlight">0{i + 1}</span><p className="mt-3 font-semibold">{item}</p></div>)}
+            </div>
+          </Reveal>
         </div>
       </section>
       <CtaBand

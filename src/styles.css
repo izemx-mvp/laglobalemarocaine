@@ -156,6 +156,19 @@
     overflow-x: hidden;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
   h1,
   h2,
   h3,

@@ -113,6 +113,22 @@ function Services() {
           </div>
         </div>
       </section>
+      <section className="section-pad">
+        <div className="container-wide">
+          <SectionHeading eyebrow="Applications" title="Un accompagnement relié à votre terrain." text="Chaque intervention part du produit à protéger, de son environnement et de son parcours logistique." />
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {["Industrie & lignes de production", "Stockage & manutention", "Agriculture & protection", "Transport & logistique"].map((item, i) => (
+              <Reveal key={item} delay={i * .06}>
+                <div className="group border-l-2 border-primary bg-secondary p-7 transition duration-500 hover:bg-primary-dark hover:text-primary-foreground">
+                  <span className="font-display text-4xl font-bold text-highlight">0{i + 1}</span>
+                  <h3 className="mt-8 text-xl font-semibold">{item}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground transition-colors group-hover:text-primary-foreground/70">Une réponse étudiée selon les contraintes réelles de votre activité.</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
       <CtaBand
         title="Votre besoin est spécifique ? C’est notre point de départ."
         text="Partagez vos contraintes, quantités et délais pour lancer l’étude."

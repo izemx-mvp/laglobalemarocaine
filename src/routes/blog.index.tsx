@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen, Factory, Lightbulb } from "lucide-react";
 import { Hero, Reveal, SectionHeading } from "@/components/site/blocks";
 import { posts } from "@/components/site/site-data";
 import hero from "@/assets/extrusion-detail.jpg";
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Actualités & expertise emballage plastique | LGM" },
@@ -74,6 +74,17 @@ function Blog() {
                 </article>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="section-pad bg-primary-dark text-primary-foreground">
+        <div className="container-wide">
+          <SectionHeading light eyebrow="Trois angles" title="Une lecture utile de notre métier." />
+          <div className="mt-10 grid gap-px bg-primary-foreground/20 md:grid-cols-3">
+            {[[BookOpen, "Comprendre", "Des repères clairs sur les familles d’emballages."], [Lightbulb, "Choisir", "Les critères qui relient un usage à une solution."], [Factory, "Produire", "Un regard concret sur la maîtrise industrielle."]].map(([I, title, text]) => {
+              const Icon = I as typeof BookOpen;
+              return <div key={title as string} className="bg-primary-dark p-8"><Icon className="text-highlight" /><h3 className="mt-8 text-2xl font-semibold">{title as string}</h3><p className="mt-3 text-sm leading-6 text-primary-foreground/70">{text as string}</p></div>;
+            })}
           </div>
         </div>
       </section>

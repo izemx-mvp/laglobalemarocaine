@@ -60,6 +60,14 @@ function Quote() {
             </div>
           </aside>
         </div>
+        <div className="mt-16 border-t pt-12">
+          <h2 className="text-3xl font-bold">Les informations qui nous aident à vous répondre.</h2>
+          <div className="mt-8 grid gap-px bg-border md:grid-cols-4">
+            {["Usage du produit", "Dimensions souhaitées", "Volume envisagé", "Contraintes particulières"].map((item, i) => (
+              <div key={item} className="bg-background p-6"><span className="font-display text-3xl font-bold text-highlight">0{i + 1}</span><p className="mt-6 font-semibold">{item}</p></div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Factory, MapPin, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Hero, Reveal, SectionHeading, CtaBand, ProductCard } from "@/components/site/blocks";
-import { products } from "@/components/site/site-data";
+import { posts, products } from "@/components/site/site-data";
 import hero from "@/assets/industrial-production.jpg";
 import rolls from "@/assets/film-rolls.jpg";
 import greenhouse from "@/assets/agricultural-greenhouse.jpg";
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "LGM conçoit et fabrique à Casablanca et Had Soualem des films, sacs, housses, gaines et films agricoles pour l'industrie.",
+          "LGM conçoit et fabrique au Maroc des films, sacs, housses, gaines et films agricoles pour l'industrie.",
       },
       {
         property: "og:title",
@@ -38,7 +38,7 @@ function Home() {
         image={hero}
         eyebrow="Fabricant marocain • Depuis 1986"
         title="Le plastique au service de vos ambitions."
-        description="Films, sacs, housses et gaines conçus pour les exigences de l'industrie, produits avec rigueur à Had Soualem."
+        description="Films, sacs, housses et gaines conçus au Maroc pour répondre avec rigueur aux exigences de l’industrie."
         full
       >
         <Button asChild size="lg" variant="cta">
@@ -143,11 +143,11 @@ function Home() {
                   Ancrés au Maroc. Tournés vers vos objectifs.
                 </h2>
                 <p className="mt-5 leading-7 text-muted-foreground">
-                  Du siège de Casablanca à l’usine de Had Soualem, nos équipes accompagnent les
-                  industriels et acteurs agricoles avec réactivité.
+                  Depuis Casablanca, nos équipes accompagnent les industriels et acteurs agricoles
+                  avec proximité et réactivité.
                 </p>
                 <div className="mt-7 flex items-center gap-3 font-medium text-primary">
-                  <MapPin /> Casablanca · Had Soualem
+                  <MapPin /> Casablanca, Maroc
                 </div>
               </div>
             </div>
@@ -172,6 +172,38 @@ function Home() {
                 </div>
               ),
             )}
+          </div>
+        </div>
+      </section>
+      <section className="section-pad diagonal-top surface-grid-dark bg-secondary pt-32">
+        <div className="container-wide">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionHeading
+              eyebrow="Le journal LGM"
+              title="L’industrie en pratique."
+              text="Nos repères pour mieux comprendre les matières, les usages et les enjeux de protection."
+            />
+            <Button asChild variant="outline">
+              <Link to="/blog">Voir tous les articles <ArrowRight /></Link>
+            </Button>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {posts.slice(0, 3).map((post, i) => (
+              <Reveal key={post.slug} delay={i * 0.07}>
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: post.slug }}
+                  className="group block overflow-hidden rounded-lg bg-card shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <img src={post.image} width={1536} height={1024} loading="lazy" alt="" className="aspect-[16/9] w-full object-cover image-hover group-hover:scale-105" />
+                  <div className="p-6">
+                    <p className="text-xs font-semibold uppercase text-highlight">{post.category}</p>
+                    <h3 className="mt-3 text-xl font-semibold">{post.title}</h3>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">Lire <ArrowRight className="size-4" /></span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

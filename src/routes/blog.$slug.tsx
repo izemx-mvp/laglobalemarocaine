@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { posts } from "@/components/site/site-data";
 export const Route = createFileRoute("/blog/$slug")({
@@ -75,6 +75,14 @@ function Article() {
             opérations et sécurise les flux. C’est pourquoi chaque besoin mérite un échange
             technique et un suivi adapté.
           </p>
+          <div className="my-12 grid gap-3 sm:grid-cols-3">
+            {["Usage analysé", "Format adapté", "Suivi maîtrisé"].map((item) => (
+              <div key={item} className="bg-primary-dark p-5 text-primary-foreground">
+                <CheckCircle2 className="size-5 text-highlight" />
+                <p className="mt-5 text-sm font-semibold">{item}</p>
+              </div>
+            ))}
+          </div>
           <div className="mt-12 border-l-4 border-highlight bg-secondary p-6">
             <p className="font-medium">
               L’équipe LGM accompagne chaque demande sur la base des contraintes réelles de
