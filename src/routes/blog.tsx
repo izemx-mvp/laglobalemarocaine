@@ -31,8 +31,9 @@ function Blog() {
         eyebrow="Actualités & expertise"
         title="Regards sur notre industrie."
         description="Conseils techniques, évolutions du métier et coulisses d’un savoir-faire marocain."
+        align="center"
       />
-      <section className="section-pad">
+      <section className="section-pad diagonal-top surface-grid-dark pt-32">
         <div className="container-wide">
           <SectionHeading
             eyebrow="Le journal LGM"
@@ -54,7 +55,7 @@ function Blog() {
                     height={1024}
                     loading="lazy"
                     alt={`Illustration de l’article : ${p.title}`}
-                    className={`${i === 0 ? "h-full min-h-80" : "aspect-[16/9]"} w-full object-cover`}
+                    className="aspect-[4/3] h-full w-full object-cover"
                   />
                   <div className="p-7">
                     <p className="text-xs font-semibold uppercase tracking-widest text-highlight">

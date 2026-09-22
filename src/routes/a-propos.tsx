@@ -36,6 +36,7 @@ function About() {
         eyebrow="La Globale Marocaine"
         title="Notre histoire depuis 1986."
         description="Une entreprise industrielle marocaine bâtie sur la continuité, la maîtrise technique et la confiance."
+        align="center"
       />
       <section className="section-pad">
         <div className="container-wide">
@@ -55,7 +56,7 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="bg-primary-dark py-10 text-primary-foreground">
+      <section className="diagonal-top diagonal-bottom surface-grid bg-primary-dark pb-20 pt-20 text-primary-foreground">
         <div className="container-wide grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ["39 ans", "d’expérience"],
@@ -70,7 +71,7 @@ function About() {
           ))}
         </div>
       </section>
-      <section className="section-pad bg-secondary">
+      <section className="section-pad surface-grid-dark bg-secondary">
         <div className="container-wide grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <img
@@ -116,32 +117,37 @@ function About() {
             ].map(([I, t, d]) => {
               const Icon = I as typeof Factory;
               return (
-                <div key={t as string} className="rounded-lg border bg-card p-7 shadow-sm">
-                  <Icon className="text-primary" />
+                <div key={t as string} className="rounded-lg bg-primary-dark p-7 text-primary-foreground shadow-lg">
+                  <span className="grid size-11 place-items-center rounded-full bg-primary-foreground/10">
+                    <Icon className="text-primary-foreground" />
+                  </span>
                   <h3 className="mt-8 text-xl font-semibold">{t as string}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{d as string}</p>
+                  <p className="mt-2 text-sm leading-6 text-primary-foreground/75">{d as string}</p>
                 </div>
               );
             })}
           </div>
         </div>
       </section>
-      <section className="section-pad bg-secondary">
+      <section className="section-pad diagonal-top surface-grid-dark bg-secondary pt-32">
         <div className="container-wide">
           <SectionHeading
             eyebrow="Processus"
             title="De votre cahier des charges au produit fini."
           />
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
+          <div className="relative mt-12 max-w-3xl before:absolute before:bottom-4 before:left-6 before:top-4 before:w-px before:bg-primary/25">
             {[
               "Analyse du besoin",
               "Définition technique",
               "Production & contrôle",
               "Préparation logistique",
             ].map((x, i) => (
-              <div key={x} className="relative border-t-2 border-primary pt-6">
-                <span className="text-5xl font-bold text-primary/20">0{i + 1}</span>
-                <h3 className="mt-4 text-lg font-semibold">{x}</h3>
+              <div key={x} className="relative grid grid-cols-[3rem_1fr] items-start gap-6 pb-9 last:pb-0">
+                <span className="relative z-10 grid size-12 place-items-center rounded-full bg-highlight font-bold text-highlight-foreground shadow-md">0{i + 1}</span>
+                <div className="pt-2">
+                  <h3 className="text-xl font-semibold">{x}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">Une étape suivie par nos équipes pour assurer une réponse cohérente à votre usage.</p>
+                </div>
               </div>
             ))}
           </div>

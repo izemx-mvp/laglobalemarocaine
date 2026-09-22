@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock3, Factory, Mail, MapPin, Phone, Printer } from "lucide-react";
 import { LeadForm } from "@/components/site/forms";
+import { Hero } from "@/components/site/blocks";
 import { contact } from "@/components/site/site-data";
+import hero from "@/assets/logistics-pallets.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -35,16 +37,12 @@ function Contact() {
   ];
   return (
     <>
-      <section className="bg-primary-dark pb-20 pt-36 text-primary-foreground">
-        <div className="container-wide">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary-foreground/60">
-            Contact
-          </p>
-          <h1 className="mt-5 max-w-4xl text-5xl font-bold sm:text-7xl">
-            Deux implantations. Une équipe à votre écoute.
-          </h1>
-        </div>
-      </section>
+      <Hero
+        image={hero}
+        eyebrow="Contact"
+        title="Deux implantations. Une équipe à votre écoute."
+        description="Échangez avec notre siège à Casablanca ou notre équipe de production à Had Soualem."
+      />
       <section className="section-pad">
         <div className="container-wide grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <div>
@@ -94,7 +92,7 @@ function Contact() {
           </div>
         </div>
       </section>
-      <section className="section-pad bg-secondary">
+      <section className="section-pad diagonal-top surface-grid-dark bg-secondary pt-32">
         <div className="container-wide">
           <h2 className="text-4xl font-bold">Nos implantations</h2>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">

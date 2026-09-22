@@ -43,8 +43,9 @@ function Products() {
         eyebrow="Nos produits"
         title="La bonne protection, pour chaque application."
         description="Une gamme complète de solutions plastiques industrielles, définies selon vos usages et vos contraintes."
+        align="center"
       />
-      <section className="section-pad">
+      <section className="section-pad surface-grid-dark">
         <div className="container-wide">
           <SectionHeading eyebrow="Gamme LGM" title="Cinq familles. Des possibilités sur mesure." />
           <div
@@ -55,7 +56,7 @@ function Products() {
             {filters.map((x) => (
               <Button
                 key={x}
-                variant={filter === x ? "default" : "outline"}
+                variant={filter === x ? "cta" : "outline"}
                 onClick={() => setFilter(x)}
                 role="tab"
                 aria-selected={filter === x}
@@ -68,7 +69,7 @@ function Products() {
             {shown.map((p, i) => (
               <Reveal key={p.slug} delay={i * 0.06}>
                 <article className="group overflow-hidden rounded-lg border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                  <div className="overflow-hidden">
+                  <div className="relative overflow-hidden">
                     <img
                       src={p.image}
                       width={1536}
@@ -77,19 +78,14 @@ function Products() {
                       alt={`${p.title} pour applications industrielles`}
                       className="aspect-[4/3] w-full object-cover image-hover group-hover:scale-105"
                     />
-                  </div>
-                  <div className="p-7">
-                    <div className="flex flex-wrap gap-2">
+                    <div className="absolute left-4 top-4 flex max-w-[calc(100%-2rem)] flex-wrap gap-2">
                       {p.sectors.map((s) => (
-                        <span
-                          key={s}
-                          className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground"
-                        >
-                          {s}
-                        </span>
+                        <span key={s} className="rounded-full bg-primary-dark px-3 py-1 text-xs font-semibold text-primary-foreground shadow-md">{s}</span>
                       ))}
                     </div>
-                    <h2 className="mt-5 text-2xl font-semibold">{p.title}</h2>
+                  </div>
+                  <div className="p-7">
+                    <h2 className="text-2xl font-semibold">{p.title}</h2>
                     <p className="mt-3 leading-7 text-muted-foreground">{p.description}</p>
                     <Button
                       asChild

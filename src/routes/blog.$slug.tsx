@@ -28,7 +28,7 @@ function Article() {
   return (
     <>
       <article>
-        <header className="bg-primary-dark pb-16 pt-36 text-primary-foreground">
+        <header className="surface-grid bg-primary-dark pb-16 pt-36 text-primary-foreground">
           <div className="container-wide">
             <Link
               to="/blog"
@@ -39,7 +39,7 @@ function Article() {
             <p className="mt-10 text-sm font-semibold uppercase tracking-widest text-primary-foreground/60">
               {post.category} · {post.date}
             </p>
-            <h1 className="mt-5 max-w-5xl text-5xl font-bold leading-tight sm:text-7xl">
+            <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-tight sm:text-6xl">
               {post.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-primary-foreground/70">
@@ -53,7 +53,7 @@ function Article() {
             width={1536}
             height={1024}
             alt={`Photographie industrielle : ${post.title}`}
-            className="aspect-[16/8] w-full object-cover"
+            className="aspect-[16/9] w-full object-cover"
           />
         </div>
         <div className="mx-auto max-w-3xl px-4 py-20 text-lg leading-8">
@@ -88,7 +88,7 @@ function Article() {
           </Button>
         </div>
       </article>
-      <section className="section-pad bg-secondary">
+      <section className="section-pad diagonal-top surface-grid-dark bg-secondary pt-32">
         <div className="container-wide">
           <h2 className="text-3xl font-bold">À lire aussi</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -105,7 +105,7 @@ function Article() {
                   height={1024}
                   loading="lazy"
                   alt=""
-                  className="h-full w-full object-cover"
+                    className="aspect-square h-full w-full object-cover"
                 />
                 <div className="p-5">
                   <p className="text-xs uppercase text-highlight">{p.category}</p>
