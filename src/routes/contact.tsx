@@ -89,7 +89,7 @@ function Contact() {
             <article className="overflow-hidden rounded-lg bg-card shadow-sm">
               <iframe
                 title="Carte Google Maps — La Globale Marocaine"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.537800809041!2d-7.614589784408567!3d33.591461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d29dec3ba36f%3A0x2cf5958c1da8d7e8!2sLa%20Globale%20Marocaine!5e0!3m2!1sfr!2sma!4v1790090568954!5m2!1sfr!2sma"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.537800809041!2d-7.614589784408567!3d33.59134793717243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d29dec3ba36f%3A0x2cf5958c1da8d7e8!2sLa%20Globale%20Marocaine!5e0!3m2!1sfr!2sma!4v1790090568954!5m2!1sfr!2sma"
                 className="h-[28rem] w-full border-0"
                 loading="lazy"
                 allowFullScreen
